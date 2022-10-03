@@ -8,16 +8,18 @@ Files :
    - template.yml
    - samconfig.toml
 
-1. Initialize the project
-   - sam init --runtime python3.8 --name FlaskServerless
-   - Copy the AppModel/ for our application model to the newly created serverless project
+1. Initialize the Serverless project
+   - sam init --runtime python3.8 --name ServerlessApp
+   - At this stage we have our the application files ready in the Application/ repository
 
-2. Restructure the Flask Application
+2. Replace the generated defaultApp by our Application/ application in a new app model AppModel/
+   - cp ../Application/ ServerlessApp/AppModel
+   - rm -rf defaultApp/
 
-3. Add dependencies file
-   - Add the dependencies in the ./AppModel/requirements
+3. Add dependencies packages in the in the ./AppModel/requirements file
+   - touch requirements.txt
 
-4. Create Lambda Functions handlers
+4. Create Lambda Functions handlers that will be launched whenever an event (json format) is requested
    - Import all libraries in the main app (app.py)
    - Add the handler : def lambda_handler(event, context)
 
