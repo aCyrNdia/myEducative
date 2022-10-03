@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    project: kubernetes-project
+  name: kubernetes-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: kubernetes-project
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        project: kubernetes-project
+    spec:
+      containers:
+      - image: cyrillendia/mywebapp:latest
+        name: kubernetes-pod
+        ports:
+        - containerPort: 31111
+status: {}

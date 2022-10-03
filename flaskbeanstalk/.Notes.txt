@@ -1,0 +1,19 @@
+1. Virtual environment to manage packages
+   - Create the virtual environment : virtualenv virt
+   - Activate the virtual environment : source virt/bin/activate
+
+2. Necessary packages in the virtual environment 
+   - Install packages : pip install flask==2.0.3 Flask-SQLAlchemy==2.5.1
+   - Add the packages in a requirements.txt file : pip freeze > /usercode/elearning/requirements.txt
+
+3. Initialize the EB CLI repository : eb init -i
+   - Define the Application name : flaskbeanstalk
+   - # Here you can create multiple application, but the last you init is the one which will be used for the next step
+   - Show the application list : aws elasticbeanstalk describe-applications
+
+4. Create an ElasticBeanstalk environment that runs by creating a new infra : For each project initialization, an environment is created
+   - Create our environment : eb create flask-env
+
+5. Deploy the flaskbeanstlk Application
+   - Notice the newly created environment domain name where the application is running : flask-env.eba-vrvipayh.us-east-1.elasticbeanstalk.com
+   - Check the status of the environment : eb status flask-env

@@ -1,0 +1,10 @@
+1. Create and Configure the Cluster
+2. Create and Containerize our App
+3. Set up the Helm Chart
+   - Create a new Helm Chart : helm create newchart
+   - Add other Chart dependencies specification in Chart.yml : echo "dependencies:..." > newchart/Chart.yml
+   - Install all the dependencies and they will be listed in chart/ repository : helm dependency update
+   - Configure Values file : due to the fact that the dependencies will comme with there values, we should modify these in values.yml
+   - Create K8S objects templates
+4. Install the Chart's release
+5. Check that all the templates resources and the dependencies resources are installed and in running states

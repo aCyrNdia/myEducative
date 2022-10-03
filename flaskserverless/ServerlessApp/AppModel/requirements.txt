@@ -1,0 +1,6 @@
+werkzeug==2.0.0
+flask-lambda==0.0.4
+Flask-SQLAlchemy==2.5.1
+boto3==1.21.29
+requests==2.27.1
+aws-wsgi==0.2.7

@@ -1,0 +1,29 @@
+# Write your code here
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      project: kubernetes-project
+      app: application
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        project: kubernetes-project
+        app: application
+        tier: frontend
+    spec:
+      containers:
+      - name: app-pod
+        image: cyrillendia/myrubyapp
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: database-configmap

@@ -1,0 +1,20 @@
+1. Docker Images
+   - Create Image
+   - Tag Image
+   - Push Image
+
+2. Cluster Configuration
+
+3. Deploy Resources
+   - Deployment.yml
+   - Service.yml
+
+4. Ingress Configuration
+
+   - Add Ingress Controller (LoadBalancer) : 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
+
+   - Add Ingress Rules:
+An Ingress is used to manage services
+
+5. Ingress Controller Forwarding

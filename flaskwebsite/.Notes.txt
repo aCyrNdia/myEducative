@@ -1,0 +1,40 @@
+The files :
+   - app.py : the core file of the project that executes the application
+   - website/ : contains all the implementations related to the Flask website
+     + templates/ : contains all the HTML files of the project.
+     + __init.py__ : main controller of the website
+     + routes.py : manages all the website routes which are responsible of mapping the URL directly to the code that creates the webpage
+     + models.py : consists of all of the application models like the database model we use here
+   - course.json : contains data informations related to all the courses
+
+1. Configure the database object (from the flask_sqlalchemy class) in the website controller
+   - Generate our database class : db = SQLAlchemy()
+   - Create a new application in the create_app() methods : app = Flask(__name__)
+   - Add the db to our new app
+
+2. Create our database : def create_database(app)
+   - add the create_database(app) in the create_app() method
+
+3. Create a Course model that allows convenient addition of database records
+   - Import the db from the main controller : from . import db
+   - Create the model Class : class Course(db.Model)
+
+4. Load the data into the database
+   - Add a route in the routes.py file : @routes.route('/loaddata')
+   - Add a method to load data from the .json file : def loaddata()
+
+5. We create our website HTML files : base.html and course_view.html
+   - We use the @routes.route("/") to redirect traffic to the course_view.html with the home() method
+   - def home() : return render_template('course_view.html', course=courses)
+   - in the course_view.html file we handle the course : {% for crs in course %} ... {% endfor %}
+   - # Use https://flask.palletsprojects.com/en/2.2.x/patterns/templateinheritance/ for inheritance
+
+6. Add a new controller to search from the database : query = request.args.get('query')
+
+
+Workflow to search for a course :
+   - The user connect to the webapp frontend at the "/" path : base.html
+   - The user search for a course : courseforexample
+   - The route @routes.route("/") for the main path is launched
+   - The route looks for the courseforexample in the Course() class that represent the database
+   - Once the courseforexample is found, the main route generates a view of the course from the course_view.html template

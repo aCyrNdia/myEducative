@@ -1,0 +1,16 @@
+# Write your code here
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-svc
+spec:
+  type: NodePort
+  selector:
+    project: kubernetes-project
+    app: application
+    tier: frontend
+  ports:
+  - name: application
+    port: 3000
+    targetPort: 3000
+    nodePort: 31111

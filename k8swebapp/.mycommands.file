@@ -1,0 +1,6 @@
+docker login -u cyrillendia
+#Password : //from dockerhub_credentials
+
+docker image build -t cyrillendia/[CONTAINER]
+docker image tag cyrillendia/[CONTAINER] cyrillendia/[CONTAINER]:[TAG]
+docker image push cyrillendia/[CONTAINER]:[TAG]
